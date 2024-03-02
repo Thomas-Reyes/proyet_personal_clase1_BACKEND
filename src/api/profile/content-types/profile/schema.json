@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "adress": {
+    "Direccion": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -25,10 +25,10 @@
       "type": "string",
       "required": true
     },
-    "avatar": {
+    "CargaAuto": {
       "type": "media",
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images"
       ],

@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "autos",
+  "info": {
+    "singularName": "auto",
+    "pluralName": "autos",
+    "displayName": "auto"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "NombreVehiculo": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    }
+  }
+}

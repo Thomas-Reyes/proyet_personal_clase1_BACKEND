@@ -362,6 +362,45 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiAutoAuto extends Schema.CollectionType {
+  collectionName: 'autos';
+  info: {
+    singularName: 'auto';
+    pluralName: 'autos';
+    displayName: 'auto';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    NombreVehiculo: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::auto.auto', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::auto.auto', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::auto.auto',
+      'oneToMany',
+      'api::auto.auto'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiProfileProfile extends Schema.CollectionType {
   collectionName: 'profiles';
   info: {
@@ -379,14 +418,15 @@ export interface ApiProfileProfile extends Schema.CollectionType {
     };
   };
   attributes: {
-    adress: Attribute.String &
+    Direccion: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    avatar: Attribute.Media &
+    CargaAuto: Attribute.Media &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -849,6 +889,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::auto.auto': ApiAutoAuto;
       'api::profile.profile': ApiProfileProfile;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
