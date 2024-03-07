@@ -16,7 +16,40 @@
     }
   },
   "attributes": {
-    "Direccion": {
+    "direccion": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "comuna": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "profile"
+    },
+    "nombreApellido": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "rut": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -25,18 +58,23 @@
       "type": "string",
       "required": true
     },
-    "CargaAuto": {
-      "type": "media",
-      "multiple": true,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
+    "contacto": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
-      }
+      },
+      "type": "biginteger",
+      "required": true
+    },
+    "fecha": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
     }
   }
 }
