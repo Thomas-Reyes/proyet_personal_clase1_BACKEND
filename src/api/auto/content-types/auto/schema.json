@@ -4,7 +4,8 @@
   "info": {
     "singularName": "auto",
     "pluralName": "autos",
-    "displayName": "auto"
+    "displayName": "auto",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,6 +24,55 @@
       },
       "type": "text",
       "required": true
+    },
+    "kilometraje": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger",
+      "required": true
+    },
+    "conbustible": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "transmicion": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "valor": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger",
+      "required": true
+    },
+    "imgVitrina": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
