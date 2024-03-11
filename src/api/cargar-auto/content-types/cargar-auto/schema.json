@@ -4,7 +4,7 @@
   "info": {
     "singularName": "cargar-auto",
     "pluralName": "cargar-autos",
-    "displayName": "cargarAuto",
+    "displayName": "cargar-autos",
     "description": ""
   },
   "options": {
@@ -50,7 +50,8 @@
         }
       },
       "type": "boolean",
-      "required": true
+      "required": true,
+      "default": true
     },
     "seleccionarMarca": {
       "pluginOptions": {
@@ -62,15 +63,6 @@
       "required": true
     },
     "selcecionaVersion": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text",
-      "required": true
-    },
-    "selcecionaTiempoAnual": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -104,7 +96,8 @@
         }
       },
       "type": "boolean",
-      "required": true
+      "required": true,
+      "default": false
     },
     "climatizacion": {
       "pluginOptions": {
@@ -152,17 +145,28 @@
       "default": false,
       "required": false
     },
-    "imaginesSubidas": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": true,
+    "profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::profile.profile",
+      "inversedBy": "cargar_autos"
+    },
+    "selcecionaPeriodo": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
+      "required": true,
+      "type": "biginteger"
+    },
+    "valorAuto": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger",
       "required": true
     }
   }

@@ -367,7 +367,7 @@ export interface ApiAutoAuto extends Schema.CollectionType {
   info: {
     singularName: 'auto';
     pluralName: 'autos';
-    displayName: 'auto';
+    displayName: 'autoVitrina';
     description: '';
   };
   options: {
@@ -442,7 +442,7 @@ export interface ApiCargarAutoCargarAuto extends Schema.CollectionType {
   info: {
     singularName: 'cargar-auto';
     pluralName: 'cargar-autos';
-    displayName: 'cargarAuto';
+    displayName: 'cargar-autos';
     description: '';
   };
   options: {
@@ -481,7 +481,8 @@ export interface ApiCargarAutoCargarAuto extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
-      }>;
+      }> &
+      Attribute.DefaultTo<true>;
     seleccionarMarca: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -490,13 +491,6 @@ export interface ApiCargarAutoCargarAuto extends Schema.CollectionType {
         };
       }>;
     selcecionaVersion: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    selcecionaTiempoAnual: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -523,7 +517,8 @@ export interface ApiCargarAutoCargarAuto extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
-      }>;
+      }> &
+      Attribute.DefaultTo<false>;
     climatizacion: Attribute.Boolean &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -559,7 +554,19 @@ export interface ApiCargarAutoCargarAuto extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<false>;
-    imaginesSubidas: Attribute.Media &
+    profile: Attribute.Relation<
+      'api::cargar-auto.cargar-auto',
+      'manyToOne',
+      'api::profile.profile'
+    >;
+    selcecionaPeriodo: Attribute.BigInteger &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    valorAuto: Attribute.BigInteger &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -654,6 +661,11 @@ export interface ApiProfileProfile extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    cargar_autos: Attribute.Relation<
+      'api::profile.profile',
+      'oneToMany',
+      'api::cargar-auto.cargar-auto'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -75,6 +75,12 @@
       },
       "type": "text",
       "required": true
+    },
+    "cargar_autos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cargar-auto.cargar-auto",
+      "mappedBy": "profile"
     }
   }
 }
